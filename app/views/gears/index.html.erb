@@ -3,9 +3,10 @@
 <ul>
     <% @gears.each do |gear| %>
         <li>
-            <%= link_to gear_path(@gear) do %>
-                <%= gear.name %> - <%= gear.price %>€/day
+            <%= link_to gear_path(gear) do %>
+                <%= gear.name %>
             <% end %>
+             - <%= gear.price %>€/day
         </li>
     <% end %>
 </ul>
