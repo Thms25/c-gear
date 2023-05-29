@@ -1,6 +1,11 @@
 <h1>This is the index page</h1>
 
-<% @gears.each do |gear| %>
-<%= gear.name %>
-<% end %>
-
+<ul>
+    <% @gears.each do |gear| %>
+        <li>
+            <%= link_to gear_path(@gear) do %>
+                <%= gear.name %> - <%= gear.price %>€/day
+            <% end %>
+        </li>
+    <% end %>
+</ul>
