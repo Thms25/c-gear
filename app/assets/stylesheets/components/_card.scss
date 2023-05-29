@@ -51,3 +51,37 @@
   margin-top: 8px;
   font-weight: bold;
 }
+
+.photos-card {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  border-radius: 40px;
+}
+
+
+.photos-card img {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.description-card {
+  background-color: #F9EBD7;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding-top: 200px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 160px;
+  display: flex;
+  flex-direction: column;
+  border: #606D5D solid 2px;
+}
+
+.practical-info-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: #606D5D 1px;
+  border-top: #606D5D 1px;
+}
