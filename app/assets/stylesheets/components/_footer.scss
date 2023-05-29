@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.footer a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.409);
+}
