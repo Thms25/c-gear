@@ -1,5 +1,5 @@
 class GearsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
     @gears = Gear.all
@@ -10,7 +10,7 @@ class GearsController < ApplicationController
 
   private
 
-  def gear_params
+  def set_gear
     @gear = Gear.find(params[:id])
   end
 
