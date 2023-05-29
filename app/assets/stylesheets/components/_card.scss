@@ -40,6 +40,9 @@
     right: 5%;
     color: rgba(0,0,0,0.5);
     font-size: 1.5rem;
+    i {
+      -webkit-text-stroke: 2px white;
+    }
   }
 
 }

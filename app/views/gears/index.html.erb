@@ -1,12 +1,27 @@
-<h1>This is the index page</h1>
 
-<ul>
-    <% @gears.each do |gear| %>
-        <li>
-            <%= link_to gear_path(gear) do %>
-                <%= gear.name %>
-            <% end %>
-             - <%= gear.price %>€/day
-        </li>
-    <% end %>
-</ul>
+
+    <div class="container">
+      <div class="card-container">
+        <% @gears.each do |gear| %>
+          <div class="card-product">
+            <div class="card-picture">
+              <%= link_to raw('<img src="https://a0.muscache.com/im/pictures/miso/Hosting-795742377783721248/original/7be2f370-fc8f-4871-a686-9f698bce86dc.jpeg?im_w=720" alt="">'), gear_path(gear) %>
+              <div class="card-dot">
+                <p><i class="fa-solid fa-circle"></i></p>
+                <p><i class="fa-solid fa-circle"></i></p>
+                <p><i class="fa-solid fa-circle"></i></p>
+                <p><i class="fa-solid fa-circle"></i></p>
+              </div>
+              <div class="card-favorite">
+                <p><i class="fa-solid fa-heart" style="--fa-border-color: white; --fa-border-width: 0.5em"></i></p>
+              </div>
+            </div>
+            <div class="card-description">
+              <p class="card-description-bold"><%= gear.name %></p>
+              <p><%= gear.features %></p>
+              <p class="card-description-bold"><%= gear.price %> €/day</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
