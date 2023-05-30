@@ -1,10 +1,4 @@
 <div class="container">
   <h1>Edit your booking</h1>
-  <%= simple_form_for(@booking) do |f| %>
-    <p>You are doing a booking for a "<strong><%= @booking.gear.name %></strong>"</p>
-    <p>Price for your booking "<strong><%= @booking.gear.price %></strong>"</p>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.submit  %>
-  <% end %>
+  <% render "form", locals: { gear: @gear, booking: @booking } %>
 </div>

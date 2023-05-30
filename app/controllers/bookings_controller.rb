@@ -5,10 +5,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(start_date: booking_params[:start_date].split(" to ")[0], end_date: booking_params[:start_date].split(" to ")[1] )
     @gear = Gear.find(params[:gear_id])
     @booking.gear = @gear
-    @booking.user_id = current_user.id
+    @booking.user = current_user
     if @booking.save
       redirect_to gears_path
     else
@@ -22,8 +22,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    # @booking.update(booking_params)
-    # redirect_to gears_path
+    @booking = Booking.find(params[:id])
+    if @booking.update(start_date: booking_params[:start_date].split(" to ")[0], end_date: booking_params[:start_date].split(" to ")[1] )
+      redirect_to gears_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
