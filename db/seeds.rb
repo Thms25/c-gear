@@ -6,17 +6,24 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+Gear.destroy_all
+User.destroy_all
+
 require "open-uri"
 
-puts 'Creating 10 fake users...'
-10.times do
+puts 'Creating 15 fake users...'
+15.times do
+  file = URI.open("https://source.unsplash.com/random/?portrait")
   user = User.new(
     email: Faker::Internet.email,
-    password: "abcdefg"
-  )
+    password: "qwerty",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name  )
+    user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
   user.save!
 end
-puts 'Finished!'
+puts 'Done!'
 
 
 puts 'Creating camping gear...'
