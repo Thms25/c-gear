@@ -82,6 +82,5 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: #444F5A 1px;
-  border-top: #444F5A 1px;
+  border-top: 1px solid rgba($color: #444F5A, $alpha: 0.4);
 }
