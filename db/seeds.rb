@@ -9,21 +9,18 @@
 Gear.destroy_all
 User.destroy_all
 
-require 'json'
-require 'open-uri'
-
+require "open-uri"
 
 puts 'Creating 15 fake users...'
 15.times do
-  url = "https://source.unsplash.com/random/?portrait"
-  file = URI.open(url).read
-  User.new(
+  file = URI.open("https://source.unsplash.com/random/?portrait")
+  user = User.new(
     email: Faker::Internet.email,
     password: "qwerty",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    pic: JSON.parse(file)
-  ).save!
+    last_name: Faker::Name.last_name  )
+    user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
+  user.save!
 end
 puts 'Done!'
 
