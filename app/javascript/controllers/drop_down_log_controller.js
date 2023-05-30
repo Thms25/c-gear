@@ -8,7 +8,6 @@ export default class extends Controller {
   static targets = ["menu"]
 
   dropdown() {
-    console.log('hello');
     this.menuTarget.classList.toggle("hide");
   }
 }

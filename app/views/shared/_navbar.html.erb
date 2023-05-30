@@ -1,18 +1,18 @@
 <div class="nav-section" data-controller="drop-down-log">
-  <div class="navbar">
-    <h1 class="nav-title">Get Geared</h1>
-    <div class="search-bar">
-      <a class="nav-search-element" href="">What gear?</a>
-      <a class="nav-search-element" href="">When?</a>
-      <input class="nav-search-element" type="text" placeholder="Search...">
-    </div>
-    <div class="user-options">
-      <a href="">Upload Gear</a>
-      <div class="user-dropdown">
-        <i class="fa-solid fa-bars" data-action="click->drop-down-log#dropdown"></i>
-        <%= image_tag "dogo.jpeg", alt: 'avatar', class: 'avatar', data: { action: 'click->drop-down-log#dropdown' } %>
+    <div class="navbar">
+        <h1 class="nav-title"><%= link_to (image_tag "logo.png"), gears_path %></h1>
+        <div class="search-bar">
+            <a class="nav-search-element" href="">What gear?</a>
+            <a class="nav-search-element" href="">When?</a>
+            <input class="nav-search-element" type="text" placeholder="Search...">
+        </div>
+      <div class="user-options">
+        <a href="">Upload Gear</a>
+          <div class="user-dropdown">
+            <i class="fa-solid fa-bars" data-action="click->drop-down-log#dropdown"></i>
+            <%= image_tag "dogo.jpeg", alt: 'avatar', class: 'avatar', data: { action: 'click->drop-down-log#dropdown' } %>
       </div>
-    </div>
+   </div>
   </div>
   <div class="droop hide" data-drop-down-log-target="menu">
     <ul>
