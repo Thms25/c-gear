@@ -7,9 +7,12 @@
                   <h5> <%= @gear.short_description %> </h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dolore debitis saepe maxime non, beatae magnam aperiam assumenda facere perspiciatis deleniti vel voluptatem commodi voluptate earum architecto deserunt, voluptatum at.</p>
                     <div class="practical-info-card">
+                        <div class="user-card">
+                            <%= image_tag "dogo.jpeg", alt: 'avatar', class: 'avatar-large'%>
+                            <p>Owner</p>
+                        </div>
                         <h5> <%= @gear.price %>€ /day </h5>
-                        <p> <%= @gear.availability %> </p>
-                        <%= @gear.user.email %>
+                        <%# <%= @gear.user.email %>
                     </div>
               </div>
         </div>
