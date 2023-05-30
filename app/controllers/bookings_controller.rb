@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
+    if @booking.update(start_date: booking_params[:start_date].split(" to ")[0], end_date: booking_params[:start_date].split(" to ")[1] )
       redirect_to gears_path
     else
       render :edit, status: :unprocessable_entity
