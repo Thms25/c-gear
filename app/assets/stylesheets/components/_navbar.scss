@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.661);
+  background: white;
   top: 0;
   padding: 12px 24px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
@@ -17,12 +17,17 @@
   color: rgba(0, 0, 0, 0.743);
 }
 
+.nav-title img {
+  width: 200px;
+  padding-top: 4px;
+}
+
 .search-bar {
   display: flex;
   justify-content: space-around;
-  padding: 12px 16px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
+  padding: 16px 16px;
+  border: 1px solid #444F5A;
+  border-radius: 40px;
 }
 
 .user-options {
@@ -33,22 +38,28 @@
 }
 
 .user-options a, .user-options div {
-  padding: 8px;
+  padding: 12px;
 }
 
 .nav-search-element {
   margin: 0 8px;
+  border-color: rgba($color: #444F5A, $alpha: .7);
+  border: 0px;
 }
 
 .user-dropdown {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 240px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
+  // padding: 240px;
+  border: 1px solid #444F5A;
+  border-radius: 40px;
+}
+
+.user-dropdown:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
 }
 
 .user-dropdown i, .user-dropdown img {
-  padding: 0 8px;
+  margin: 0 8px;
 }

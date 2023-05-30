@@ -1,7 +1,8 @@
 .card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 8px;
+  margin-top: 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
 }
 
 .card-product {
@@ -10,11 +11,18 @@
   p {
     margin: 0;
   }
-  img {
-    border-radius: 8px;
-    width: 100%;
-    margin-bottom: 8px;
+  a {
+    text-decoration: none;
+    color: #444F5A;
   }
+}
+
+.card-background-image {
+  width: 400px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
 }
 
 .card-picture {
@@ -28,8 +36,8 @@
     font-size: 0.5rem;
     display: flex;
     p {
-      margin-left: 2px;
-      color: white;
+      padding: 3px;
+      color: rgba($color: white, $alpha: 0.7);
       text-shadow: 0 3px 3px rgba(0,0,0,0.3);
     }
 
@@ -47,7 +55,48 @@
 
 }
 
+.card-description {
+  padding-left: 8px;
+  padding-top: 4px;
+}
+
 .card-description-bold {
-  margin-top: 8px;
   font-weight: bold;
+}
+
+.photos-card {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  border-radius: 40px;
+}
+
+
+.photos-card img {
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  height: auto;
+  max-width: 100%;
+}
+
+.description-card {
+  background-color: #FFFFFF;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  border: #444F5A solid 1px;
+}
+
+.practical-info-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-top: 1px solid rgba($color: #444F5A, $alpha: 0.4);
+
+  p {
+    padding-top: 8px;
+  }
+
 }

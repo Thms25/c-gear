@@ -6,12 +6,17 @@ class GearsController < ApplicationController
   end
 
   def show
+    @user = @gear.user_id
   end
 
   private
 
   def set_gear
     @gear = Gear.find(params[:id])
+  end
+
+  def gear_params
+    params.require(:gear).permit(:name, :price, :availability, :features, :description, :short_description)
   end
 
 end
