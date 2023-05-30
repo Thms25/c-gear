@@ -11,7 +11,7 @@
           <div class="user-dropdown">
             <i class="fa-solid fa-bars" data-action="click->drop-down-log#dropdown"></i>
             <% if user_signed_in? && current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar" %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar" %>
             <% else %>
               <%= image_tag "default_avatar.jpeg", alt: 'avatar', class: 'avatar', data: { action: 'click->drop-down-log#dropdown' } %>
             <% end %>
