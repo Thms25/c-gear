@@ -69,22 +69,18 @@
 }
 
 .description-card {
-  background-color: #F9EBD7;
+  background-color: #FFFFFF;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 160px;
+  padding: 8px 16px;
   display: flex;
   flex-direction: column;
-  border: #606D5D solid 2px;
+  border: #444F5A solid 1px;
 }
 
 .practical-info-card {
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: #606D5D 1px;
-  border-top: #606D5D 1px;
+  border-top: 1px solid rgba($color: #444F5A, $alpha: 0.4);
 }
