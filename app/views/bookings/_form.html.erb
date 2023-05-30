@@ -1,5 +1,3 @@
-<div class="container w-50">
-  <h1>New booking</h1>
   <%= simple_form_for [@gear, @booking], data: { controller: 'flatpickr' } do |f| %>
     <div>
       <p>You are doing a booking for a "<strong><%= @gear.name %></strong>"</p>
@@ -15,4 +13,3 @@
       <%= link_to "You must be loged to validate the booking", new_user_session_path %>
     <% end %>
   <% end %>
-</div>

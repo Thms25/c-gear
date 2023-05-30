@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import CalcPriceController from "./calc_price_controller"
+application.register("calc-price", CalcPriceController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import DropDownLogController from "./drop_down_log_controller"
 application.register("drop-down-log", DropDownLogController)
 
