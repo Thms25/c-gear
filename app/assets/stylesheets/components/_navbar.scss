@@ -25,7 +25,7 @@
 .search-bar {
   display: flex;
   justify-content: space-around;
-  padding: 12px 16px;
+  padding: 16px 16px;
   border: 1px solid #444F5A;
   border-radius: 40px;
 }
@@ -51,9 +51,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 240px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
+  // padding: 240px;
+  border: 1px solid #444F5A;
+  border-radius: 40px;
 }
 
 .user-dropdown:hover {
