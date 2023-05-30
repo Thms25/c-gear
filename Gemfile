@@ -80,3 +80,6 @@ end
 
 gem "devise"
 gem "faker"
+gem "cloudinary"
+gem "dotenv-rails", groups: [:development, :test]
+
