@@ -1,0 +1,32 @@
+.droop {
+  background: rgba(255, 255, 255, 0.661);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  margin: 16px;
+  position: absolute;
+  top: 80px;
+  right: 16px;
+  width: 80px;
+  z-index: 10;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.droop ul {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+
+.droop a {
+  text-decoration: none;
+  color: black;
+  // transition: 0.3s;
+}
+
+.droop a:hover {
+  color: blue;
+}
