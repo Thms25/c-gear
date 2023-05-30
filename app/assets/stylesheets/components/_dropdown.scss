@@ -8,25 +8,21 @@
   right: 16px;
   width: 80px;
   z-index: 10;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 8px auto;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    color: blue;
+  }
 }
 
 .hide {
   visibility: hidden;
-}
-
-.droop ul {
-  list-style-type: none;
-  padding-left: 0;
-  text-align: center;
-}
-
-
-.droop a {
-  text-decoration: none;
-  color: black;
-  // transition: 0.3s;
-}
-
-.droop a:hover {
-  color: blue;
 }
