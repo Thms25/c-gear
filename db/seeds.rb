@@ -6,15 +6,26 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts 'Creating 10 fake users...'
-10.times do
-  user = User.new(
+Gear.destroy_all
+User.destroy_all
+
+require 'json'
+require 'open-uri'
+
+
+puts 'Creating 15 fake users...'
+15.times do
+  url = "https://source.unsplash.com/random/?portrait"
+  file = URI.open(url).read
+  User.new(
     email: Faker::Internet.email,
-    password: "abcdefg"
-  )
-  user.save!
+    password: "qwerty",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    pic: JSON.parse(file)
+  ).save!
 end
-puts 'Finished!'
+puts 'Done!'
 
 
 puts 'Creating camping gear...'
