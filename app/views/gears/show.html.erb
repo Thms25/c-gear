@@ -1,13 +1,15 @@
 <div class="container mt-4">
     <h2><%= @gear.name %></h2>
         <div class="photos-card">
-            <img src="https://i.pinimg.com/564x/a7/cb/43/a7cb431cc757a2331b158c830c9ca251.jpg" alt="tent-image" width="400px">
+            <img src= <%= @gear.image_url%> alt="gear-image" width="400px">
               <div class="description-card">
-                  <h3>Camping gear - <%= @gear.features %></h3>
+                  <h3> <%= @gear.name %></h3>
+                  <h5> <%= @gear.short_description %> </h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dolore debitis saepe maxime non, beatae magnam aperiam assumenda facere perspiciatis deleniti vel voluptatem commodi voluptate earum architecto deserunt, voluptatum at.</p>
                     <div class="practical-info-card">
                         <h5> <%= @gear.price %>€ /day </h5>
-                        <p>This is text</p>
+                        <p> <%= @gear.availability %> </p>
+                        <%= @gear.user.email %>
                     </div>
               </div>
         </div>

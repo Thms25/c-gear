@@ -5,7 +5,7 @@
         <% @gears.each do |gear| %>
           <div class="card-product">
             <div class="card-picture">
-              <%= link_to raw('<img src="https://a0.muscache.com/im/pictures/miso/Hosting-795742377783721248/original/7be2f370-fc8f-4871-a686-9f698bce86dc.jpeg?im_w=720" alt="">'), gear_path(gear) %>
+              <%= link_to (image_tag(gear.image_url)), gear_path(gear) %>
               <div class="card-dot">
                 <p><i class="fa-solid fa-circle"></i></p>
                 <p><i class="fa-solid fa-circle"></i></p>
@@ -18,7 +18,7 @@
             </div>
             <div class="card-description">
               <p class="card-description-bold"><%= gear.name %></p>
-              <p><%= gear.features %></p>
+              <p><%= gear.short_description %></p>
               <p class="card-description-bold"><%= gear.price %> €/day</p>
             </div>
           </div>

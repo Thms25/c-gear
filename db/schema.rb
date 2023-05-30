@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+# <<<<<<< show-page
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_084704) do
+# =======
 ActiveRecord::Schema[7.0].define(version: 2023_05_29_151615) do
+# >>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_151615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+    t.string "description"
+    t.string "short_description"
     t.index ["user_id"], name: "index_gears_on_user_id"
   end
 
