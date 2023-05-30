@@ -38,7 +38,7 @@
 }
 
 .user-options a, .user-options div {
-  padding: 8px;
+  padding: 12px;
 }
 
 .nav-search-element {
@@ -56,6 +56,10 @@
   border-radius: 16px;
 }
 
+.user-dropdown:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+}
+
 .user-dropdown i, .user-dropdown img {
-  padding: 0 8px;
+  margin: 0 8px;
 }
