@@ -1,15 +1,18 @@
 <div class="container mt-4">
     <h2><%= @gear.name %></h2>
         <div class="photos-card">
-            <img src= <%= @gear.image_url%> alt="gear-image" width="400px">
+          <%= cl_image_tag @gear.photo.key, height: 300, width: 400, crop: :fill %>
               <div class="description-card">
                   <h3> <%= @gear.name %></h3>
                   <h5> <%= @gear.short_description %> </h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dolore debitis saepe maxime non, beatae magnam aperiam assumenda facere perspiciatis deleniti vel voluptatem commodi voluptate earum architecto deserunt, voluptatum at.</p>
                     <div class="practical-info-card">
+                        <div class="user-card">
+                            <%= image_tag "dogo.jpeg", alt: 'avatar', class: 'avatar-large'%>
+                            <p>Owner</p>
+                        </div>
                         <h5> <%= @gear.price %>€ /day </h5>
-                        <p> <%= @gear.availability %> </p>
-                        <%= @gear.user.email %>
+                        <%# <%= @gear.user.email %>
                     </div>
               </div>
         </div>
