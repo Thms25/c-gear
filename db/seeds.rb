@@ -17,14 +17,12 @@ end
 puts 'Finished!'
 
 
-puts 'Creating 50 fake camping gear...'
-50.times do
+puts 'Creating camping gear...'
   gear = Gear.new(
-    name: "#{Faker::Camera.brand}, #{Faker::Hobby.activity}",
+    name: "2 person tent, ideal for week-end getaway",
     price: "#{rand(30..160)} €",
     features: "#{['Biking trip', 'Hiking trip', 'Mountain trip', 'Beach trip'].sample}"
   )
   gear.user = User.all.sample
   gear.save!
-end
 puts 'Finished!'
