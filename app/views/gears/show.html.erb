@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <h2><%= @gear.name %></h2>
         <div class="photos-card">
-            <img src= <%= @gear.image_url%> alt="gear-image" width="400px">
+          <%= cl_image_tag @gear.photo.key, height: 300, width: 400, crop: :fill %>
               <div class="description-card">
                   <h3> <%= @gear.name %></h3>
                   <h5> <%= @gear.short_description %> </h5>
