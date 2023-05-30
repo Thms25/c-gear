@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import CalcPriceController from "./calc_price_controller"
+application.register("calc-price", CalcPriceController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

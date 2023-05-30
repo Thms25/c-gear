@@ -1,10 +1,18 @@
-<div class="container">
+<div class="container w-50">
   <h1>New booking</h1>
-  <%= simple_form_for [@gear, @booking] do |f| %>
-    <p>You are doing a booking for a "<strong><%= @gear.name %></strong>"</p>
-    <p>Price for your booking "<strong><%= @gear.price %></strong>"</p>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.submit  %>
+  <%= simple_form_for [@gear, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <div>
+      <p>You are doing a booking for a "<strong><%= @gear.name %></strong>"</p>
+      <p>Price for your booking "<span data-flatpickr-target="price"><strong><%= @gear.price %></strong></span>"</p>
+      <%= f.input :start_date, as: :string, placeholder: "Select a date...", input_html: { data: { flatpickr_target: "startTime", action: "change->flatpickr#calculate", input:""} } %>
+      <% f.input :end_date, as: :string, placeholder: "Select a date...", input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#calculate" }, id: 'end_time' } %>
+      <div data-flatpickr-target="list">
+      </div>
+    </div>
+    <% if user_signed_in? %>
+      <%= f.submit  %>
+    <% else %>
+      <%= link_to "You must be loged to validate the booking", new_user_session_path %>
+    <% end %>
   <% end %>
 </div>
