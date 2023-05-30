@@ -6,6 +6,7 @@ class GearsController < ApplicationController
   end
 
   def show
+    @user = @gear.user_id
   end
 
   private
