@@ -3,10 +3,18 @@ class GearsController < ApplicationController
 
   def index
     @gears = Gear.all
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def show
     @user = @gear.user
+    @markers = [{lat: @user.latitude, lng: @user.longitude}]
   end
 
   private

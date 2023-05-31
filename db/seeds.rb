@@ -12,17 +12,35 @@ User.destroy_all
 
 require "open-uri"
 
-puts 'Creating 15 fake users...'
-15.times do
+puts 'Creating 10 fake users...'
+
+addresses = [
+  "15 Rue du Marché, Brussels",
+  "48 Avenue des Roses, Antwerp",
+  "9 Rue de la Fontaine, Ghent",
+  "27 Rue de l'Église, Bruges",
+  "63 Rue du Château, Liège",
+  "10 Rue des Peupliers, Charleroi",
+  "35 Avenue de la Plage, Ostend",
+  "21 Rue de la Gare, Namur",
+  "72 Chaussée de Louvain, Leuven",
+  "54 Rue du Parc, Mons"
+]
+
+addresses.each do |address|
   file = URI.open("https://source.unsplash.com/random/?portrait")
   user = User.new(
     email: Faker::Internet.email,
     password: "qwerty",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name  )
-    user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
+    last_name: Faker::Name.last_name,
+    address: address
+  )
+  user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
   user.save!
+  puts "almost there...."
 end
+
 puts 'Done!'
 
 
