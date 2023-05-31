@@ -7,7 +7,7 @@
             <input class="nav-search-element" type="text" placeholder="Search...">
         </div>
       <div class="user-options">
-        <a href="">Upload Gear</a>
+        <%= link_to "Upload new gear", new_gear_path %>
           <div class="user-dropdown">
             <i class="fa-solid fa-bars" data-action="click->drop-down-log#dropdown"></i>
             <% if user_signed_in? && current_user.photo.attached? %>
