@@ -9,6 +9,21 @@ class GearsController < ApplicationController
     @user = @gear.user
   end
 
+  def new
+    @gear = Gear.new
+  end
+
+  def create
+    @gear = Gear.new(gear_params)
+
+    if @gear.save
+      redirect_to @gear, notice: "Gear was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def set_gear
