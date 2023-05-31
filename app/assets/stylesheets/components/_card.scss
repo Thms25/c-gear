@@ -75,8 +75,9 @@
 .photos-card img {
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
+  max-width: 400px;
   height: auto;
-  max-width: 100%;
+  object-fit: cover;
 }
 
 .description-card {
@@ -98,9 +99,19 @@
   p {
     padding-top: 8px;
   }
-
 }
 
 .user-card {
-  width: 100px;
+  text-align: center;
+
+  p {
+    padding-top: 4px;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    padding-top: 4px;
+    border-radius: 50%;
+  }
 }

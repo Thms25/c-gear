@@ -1,31 +1,38 @@
-
-
-    <div class="container">
-      <div class="card-container">
-        <% @gears.each do |gear| %>
-          <div class="card-product">
-                <%= link_to gear_path(gear) do %>
-                    <div class="card-picture">
-                        <div class="card-background-image"
-                          style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
-                        </div>
-                        <div class="card-dot">
-                          <p><i class="fa-solid fa-circle"></i></p>
-                          <p><i class="fa-solid fa-circle"></i></p>
-                          <p><i class="fa-solid fa-circle"></i></p>
-                          <p><i class="fa-solid fa-circle"></i></p>
-                        </div>
-                        <div class="card-favorite">
-                          <p><i class="fa-solid fa-heart" style="--fa-border-color: white; --fa-border-width: 0.5em"></i></p>
-                        </div>
-                    </div>
-                    <div class="card-description">
-                      <p class="card-description-bold"><%= gear.name %></p>
-                      <p><%= gear.short_description %></p>
-                      <p class="card-description-bold"><%= gear.price %> €/day</p>
-                    </div>
-                <% end %>
-          </div>
-        <% end %>
-      </div>
+<div class="gears-body">
+  <div class="container">
+    <div class="card-container">
+      <% @gears.each do |gear| %>
+        <div class="card-product">
+              <%= link_to gear_path(gear) do %>
+                  <div class="card-picture">
+                      <div class="card-background-image"
+                        style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
+                      </div>
+                      <div class="card-dot">
+                        <p><i class="fa-solid fa-circle"></i></p>
+                        <p><i class="fa-solid fa-circle"></i></p>
+                        <p><i class="fa-solid fa-circle"></i></p>
+                        <p><i class="fa-solid fa-circle"></i></p>
+                      </div>
+                      <div class="card-favorite">
+                        <p><i class="fa-solid fa-heart" style="--fa-border-color: white; --fa-border-width: 0.5em"></i></p>
+                      </div>
+                  </div>
+                  <div class="card-description">
+                    <p class="card-description-bold"><%= gear.name %></p>
+                    <p><%= gear.short_description %></p>
+                    <p class="card-description-bold"><%= gear.price %> €/day</p>
+                  </div>
+              <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
+
+  <div class="map">
+    <div style="width: 60%; height: 600px; margin: 40px auto; border-radius: 8px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+</div>
