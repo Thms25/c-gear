@@ -5,10 +5,22 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = ["startTime", "endTime", "list", "price"];
+  static values = { bookings: Array };
+  static targets = ["startTime", "endTime", "list", "price", "from", "to", "bookings"];
 
   connect() {
-    flatpickr(this.startTimeTarget, {altInput: true, minDate: "today", maxDate: new Date().fp_incr(365), mode: "range",plugins: [new rangePlugin({ input: "#end_time"})]})
+    const arrayBooking = JSON.parse(this.bookingsTarget.dataset.flatpickrBookingsValue)
+    const bookingsDisabled = arrayBooking.map((booking) => ({
+      from: booking.start_date,
+      to: booking.end_date
+    }));
+    flatpickr(this.startTimeTarget, {altInput: true,
+                                    minDate: "today",
+                                    maxDate: new Date().fp_incr(365),
+                                    mode: "range",
+                                    plugins: [new rangePlugin({ input: "#end_time"})],
+                                    disable: bookingsDisabled
+                                  })
     flatpickr(this.endTimeTarget, {altInput: true, minDate: "today", maxDate: new Date().fp_incr(365), mode: "range"})
   }
 
@@ -21,11 +33,15 @@ export default class extends Controller {
       if (endDate > startDate) {
         const numberDays = (new Date(endDate) - new Date(startDate))/ (1000 * 3600 * 24);
         this.listTarget.insertAdjacentHTML("beforeend",
-                                            `<p>${price}€ x ${numberDays} = ${price * numberDays} </p>`
+                                            `<p>${price}€ x ${numberDays} days = ${price * numberDays}€ </p>`
         )} else {
         this.listTarget.insertAdjacentHTML("beforeend",
                                             `<p>Please select a valid date !</p>`
         )}
     }
+  }
+
+  disableDates() {
+
   }
 }
