@@ -1,0 +1,18 @@
+<%= simple_form_for(@gear) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: "Two person tent"%>
+    <%= f.input :price , placeholder: "Price per day"%>
+    <%= f.input :features , collection: ['Biking trip', 'Hiking trip', 'Mountain trip', 'Beach trip']%>
+    <%= f.input :short_description, placeholder: "Spacious and water resistant"%>
+    <%= f.input :description, placeholder: "Write your description, min 150 characters", input_html: { minlength: 150 }%>
+    <%= f.input :availability %>
+    <%= f.input :photo, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
