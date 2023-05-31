@@ -15,6 +15,8 @@ class GearsController < ApplicationController
 
   def create
     @gear = Gear.new(gear_params)
+    @gear.user = current_user
+
 
     if @gear.save
       redirect_to @gear, notice: "Gear was successfully created."
@@ -31,7 +33,7 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :price, :availability, :features, :description, :short_description)
+    params.require(:gear).permit(:name, :price, :availability, :category, :description, :short_description, :photo)
   end
 
 end
