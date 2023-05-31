@@ -1,0 +1,14 @@
+.book-your-gear {
+  padding: 16px;
+  border: 1px solid black;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+#container-book-map {
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
+  margin: 40px auto;
+}

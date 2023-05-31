@@ -23,7 +23,7 @@
                                             } %>
     </div>
     <% if user_signed_in? %>
-      <%= f.submit  %>
+      <%= f.submit class: "btn btn-primary" %>
     <% else %>
       <%= link_to "You must be loged to validate the booking", new_user_session_path %>
     <% end %>
