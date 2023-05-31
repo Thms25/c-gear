@@ -17,10 +17,8 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    raise
     @booking = Booking.find(params[:id])
-    @gear = Gear.find(params[:gear_id])
-    @booking.gear = @booking
+    @gear = @booking.gear
   end
 
   def update
