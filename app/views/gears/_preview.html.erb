@@ -1,1 +1,14 @@
-<h1>Hello</h1>
+<div>
+  <% @gears.first %>
+  <h6><%= @gears.first.name %></h6>
+  <div class="pop-photo">
+    <%= cl_image_tag @gears.first.photo.key %>
+      <div class="pop-descr">
+          <p> <%= @gears.first.name %></p>
+          <div class="pop-info">
+            <p> <%= @gears.first.price %>€ /day </p>
+          </div>
+      </div>
+  </div>
+
+</div>

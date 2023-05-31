@@ -8,7 +8,7 @@ class GearsController < ApplicationController
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window_html: render_to_string(partial: "preview", locals: {user: user})
+        preview_html: render_to_string(partial: "preview", locals: {user: user})
       }
     end
   end
