@@ -38,6 +38,9 @@ class GearsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
 
   private
 
