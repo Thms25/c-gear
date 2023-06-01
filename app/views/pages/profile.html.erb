@@ -1,47 +1,52 @@
-<div class="container mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <div class="container text-center">
-          <div class="profile-card">
-                <%= cl_image_tag current_user.photo.key, class: "profile-avatar"%>
-                <h2><%= @user.first_name %></h2>
-          </div>
-        </div>
+<section class="wrapper">
+  <section class="container">
+      <div class="one profile-card">
+            <%= cl_image_tag current_user.photo.key, class: "profile-avatar"%>
+            <h2><%= @user.first_name %></h2>
       </div>
-      <div class="col-8">
-          <div class="container">
-              <div class="profile-card">
-                  <h2>About me</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quis adipisci corrupti nostrum dolorem fugiat ullam, veritatis tenetur? Voluptate facere, quas minus tempore sequi illum delectus? Error sequi nemo qui!</p>
-                </div>
-          </div>
+      <div class="two profile-card">
+          <h2>About me</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quis adipisci corrupti nostrum dolorem fugiat ullam, veritatis tenetur? Voluptate facere, quas minus tempore sequi illum delectus? Error sequi nemo qui!</p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-          <div class="personal-info profile-card">
-            <p><%= @user.first_name %> <%= @user.last_name %></p>
-            <p><%= @user.address %></p>
-            <p><%= @user.email %></p>
-            <%= link_to edit_user_registration_path do %>
-                <p class="btn">Edit profile</p>
-            <% end %>
-          </div>
+      <div class="three personal-info profile-card">
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        <p><%= @user.address %></p>
+        <p><%= @user.email %></p>
+        <%= link_to edit_user_registration_path do %>
+            <button class="btn">Edit profile</button>
+        <% end %>
       </div>
-      <div class="col-8">
-          <div class="kit profile-card">
+      <div class="four kit profile-card">
+          <h2>My kit</h2>
+            <div class="kit-gear">
               <% unless @gears.empty? %>
                   <% @gears.each do |gear|  %>
-                  <p>my <%= gear.name %></p>
-                  <% end %>
+                      <div class="preview-gear">
+                        <%= link_to gear_path(gear) do %>
+
+                          <div class="card-picture">
+                              <div class="card-profile-image"
+                                style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
+                              </div>
+                          </div>
+                        <% end %>
+                          <div class="card-description">
+                        <%= link_to gear_path(gear) do %>
+
+                            <p class="card-description-bold"><%= gear.name %></p>
+                            <% end %>
+                            <%= link_to edit_gear_path(gear) do %>
+                              <button class="button">Edit gear</button>
+                            <% end %>
+                          </div>
+                      </div>
+                <% end %>
               <% else %>
                 <%= link_to new_gear_path do %>
-                    <p class="btn">Add gear</p>
+                    <button class="btn">Add gear</button>
                 <% end %>
               <% end %>
             </div>
       </div>
-    </div>
-  </div>
-</div>
+  </section>
+</section>
