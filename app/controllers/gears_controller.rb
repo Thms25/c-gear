@@ -26,12 +26,13 @@ class GearsController < ApplicationController
 
   def new
     @gear = Gear.new
+    @booking = Booking.new
   end
 
   def create
     @gear = Gear.new(gear_params)
+    @gear.unavailabilities = params[:gear][:unavailabilities].split(", ")
     @gear.user = current_user
-
     if @gear.save
       redirect_to @gear, notice: "Gear was successfully created."
     else
@@ -50,7 +51,7 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :price, :availability, :category, :description, :short_description, :photo)
+    params.require(:gear).permit(:name, :price, :category, :unavailabilities, :description, :short_description, :photo)
   end
 
 end

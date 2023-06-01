@@ -5,8 +5,8 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static values = { bookings: Array };
-  static targets = ["startTime", "endTime", "list", "price", "from", "to", "bookings"];
+  static values = { bookings: Array, unavailabilities: Array };
+  static targets = ["startTime", "endTime", "list", "price", "from", "to", "bookings", "unavailabilities"];
 
   connect() {
     const arrayBooking = JSON.parse(this.bookingsTarget.dataset.flatpickrBookingsValue)
@@ -14,6 +14,11 @@ export default class extends Controller {
       from: booking.start_date,
       to: booking.end_date
     }));
+    console.log(bookingsDisabled)
+    const unavailabilities = JSON.parse(this.unavailabilitiesTarget.dataset.flatpickrUnavailabilitiesValue)
+    unavailabilities.forEach((element)=> {bookingsDisabled.push(element)} )
+    console.log(bookingsDisabled)
+
     flatpickr(this.startTimeTarget, {altInput: true,
                                     minDate: "today",
                                     maxDate: new Date().fp_incr(365),

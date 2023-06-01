@@ -7,6 +7,9 @@ import { application } from "./application"
 import DropDownLogController from "./drop_down_log_controller"
 application.register("drop-down-log", DropDownLogController)
 
+import FlatpickrBookingController from "./flatpickr_booking_controller"
+application.register("flatpickr-booking", FlatpickrBookingController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
