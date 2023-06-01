@@ -21,21 +21,25 @@
             <div class="kit-gear">
               <% unless @gears.empty? %>
                   <% @gears.each do |gear|  %>
-                    <%= link_to gear_path(gear) do %>
                       <div class="preview-gear">
+                        <%= link_to gear_path(gear) do %>
+
                           <div class="card-picture">
                               <div class="card-profile-image"
                                 style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
                               </div>
                           </div>
+                        <% end %>
                           <div class="card-description">
+                        <%= link_to gear_path(gear) do %>
+
                             <p class="card-description-bold"><%= gear.name %></p>
+                            <% end %>
                             <%= link_to edit_gear_path(gear) do %>
-                            <button class="button">Edit gear</button>
+                              <button class="button">Edit gear</button>
                             <% end %>
                           </div>
                       </div>
-                    <% end %>
                 <% end %>
               <% else %>
                 <%= link_to new_gear_path do %>
