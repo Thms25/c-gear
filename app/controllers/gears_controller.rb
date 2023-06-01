@@ -5,11 +5,15 @@ class GearsController < ApplicationController
     @gears = Gear.all
     @users = User.all
     @markers = @users.geocoded.map do |user|
-      {
+      gear = user.gears.first unless user.gears.empty?
+      marker = {
         lat: user.latitude,
         lng: user.longitude,
-        preview_html: render_to_string(partial: "preview", locals: {user: user})
       }
+      if gear.present?
+        marker[:preview_html] = render_to_string(partial: "preview", locals: {gear: gear})
+      end
+      marker
     end
   end
 
