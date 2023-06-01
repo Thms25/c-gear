@@ -10,7 +10,7 @@
                 collection: ['Biking trip', 'Hiking trip', 'Mountain trip', 'Beach trip'],
                 input_html: { class: "tag-selector" },
                 item_wrapper_class: 'tag-item' %>
-    <%= f.input :availability, as: :string, label: "Select the dates where your gear is not available",
+    <%= f.input :unavailabilities, as: :string, label: "Select the dates where your gear is not available",
                                             placeholder: "Select a date...",
                                             input_html: { data: {
                                               flatpickr_booking_target: "date",

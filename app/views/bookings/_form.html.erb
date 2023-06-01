@@ -5,8 +5,8 @@
         <p>No dates in your selection</p>
       </div>
       <div class="value" data-flatpickr-target="bookings" data-flatpickr-bookings-value="<%= gear.bookings.to_json %>"></div>
-      <div class="value" data-flatpickr-target="bookings-unavailabilities" data-flatpickr-bookings-value="<%= gear.availability.to_json %>"></div>
-      <%= raise %>
+      <div class="value" data-flatpickr-target="unavailabilities" data-flatpickr-unavailabilities-value="<%= gear.unavailabilities.to_json  %>"></div>
+
       <%= f.input :start_date, as: :string,wrapper_html: { class: 'hide', style: 'margin: 0; padding: 0;' }, label: "Select your dates",
                                             placeholder: "Select a date...",
                                             input_html: { data: {
