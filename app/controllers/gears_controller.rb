@@ -5,10 +5,15 @@ class GearsController < ApplicationController
     @gears = Gear.all
     @users = User.all
     @markers = @users.geocoded.map do |user|
-      {
+      gear = user.gears.first unless user.gears.empty?
+      marker = {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
       }
+      if gear.present?
+        marker[:preview_html] = render_to_string(partial: "preview", locals: {gear: gear})
+      end
+      marker
     end
   end
 
@@ -27,12 +32,14 @@ class GearsController < ApplicationController
     @gear = Gear.new(gear_params)
     @gear.user = current_user
 
-
     if @gear.save
       redirect_to @gear, notice: "Gear was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
 

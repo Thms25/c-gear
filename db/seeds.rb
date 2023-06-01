@@ -46,7 +46,7 @@ puts 'Done!'
 
 puts 'Creating camping gear...'
   gear = Gear.new(
-    name: "2 person tent",
+    name: "Two person tent",
     short_description: "Ideal for long camping trips",
     description: "Lorem ipsum dolor sit amet. Et distinctio internos quo aperiam odio est minus voluptatem cum doloremque cumque. Eum iusto commodi eum dicta voluptas vel maiores sint.
     Eos dolor voluptate sit rerum praesentium sit amet rerum sed officia veniam At consequatur maiores id aliquam ducimus et libero dolorem. A similique tempora hic veritatis labore qui illo deserunt nam velit quaerat. Id aliquam dolor hic atque doloribus est saepe voluptates qui mollitia veniam et quasi dolore.",
