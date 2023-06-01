@@ -25,7 +25,6 @@ class GearsController < ApplicationController
     @gear = Gear.new(gear_params)
     @gear.user = current_user
 
-
     if @gear.save
       redirect_to @gear, notice: "Gear was successfully created."
     else

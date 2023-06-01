@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="container text-center">
+          <div class="profile-card">
+                <%= cl_image_tag current_user.photo.key, class: "profile-avatar"%>
+                <h2><%= @user.first_name %></h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+          <div class="container">
+              <div class="profile-card">
+                  <h2>About me</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quis adipisci corrupti nostrum dolorem fugiat ullam, veritatis tenetur? Voluptate facere, quas minus tempore sequi illum delectus? Error sequi nemo qui!</p>
+                </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+          <div class="personal-info profile-card">
+            <p><%= @user.first_name %> <%= @user.last_name %></p>
+            <p><%= @user.address %></p>
+            <p><%= @user.email %></p>
+            <%= link_to edit_user_registration_path do %>
+                <p class="btn">Edit profile</p>
+            <% end %>
+          </div>
+      </div>
+      <div class="col-8">
+          <div class="kit profile-card">
+              <% unless @gears.empty? %>
+                  <% @gears.each do |gear|  %>
+                  <p>my <%= gear.name %></p>
+                  <% end %>
+              <% else %>
+                <%= link_to new_gear_path do %>
+                    <p class="btn">Add gear</p>
+                <% end %>
+              <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
