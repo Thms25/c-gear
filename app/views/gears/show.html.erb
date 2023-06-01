@@ -1,4 +1,44 @@
 <div class="container mt-4">
+
+  <h2><%= @gear.name %></h2>
+  <div class="photos-card">
+      <%= cl_image_tag @gear.photo.key %>
+      <div class="description-card">
+          <h3> <%= @gear.name %></h3>
+          <h5> <%= @gear.short_description %> </h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dolore debitis saepe maxime non, beatae magnam aperiam assumenda facere perspiciatis deleniti vel voluptatem commodi voluptate earum architecto deserunt, voluptatum at.</p>
+          <div class="practical-info-card">
+              <div class="user-infos">
+                <div class="user-card">
+                  <%= cl_image_tag @user.photo.key, alt: 'avatar'%>
+                  <p><%= @user.first_name %></p>
+                </div>
+                <div>
+                  <h5> <%= @gear.price %>€ /day </h5>
+                </div>
+              </div>
+              <div class="reviews">
+                <% @reviews.reverse.each do |review| %>
+                  <div class="review">
+                    <div class="review-top">
+                      <p><%= review.user.first_name %></p>
+                      <p><%= review.rating %></p>
+                    </div>
+                    <p><%= review.content %></p>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+                <div class="btn-review">
+                  <% if user_signed_in? %>
+                    <%= link_to "Add a review", new_gear_review_path(@gear) %>
+                  <% else %>
+                    <%= link_to "Login to add a review", new_user_session_path %>
+                  <% end %>
+                </div>
+      </div>
+  </div>
+
     <h2><%= @gear.name %></h2>
     <div class="photos-card">
       <%= cl_image_tag @gear.photo.key %>
@@ -16,16 +56,17 @@
           </div>
     </div>
 
+
 </div>
 
 <div class="container" id="container-book-map">
-  <div class="book-your-gear" >
-    <%= render partial: "bookings/form", locals: { gear: @gear, booking: @booking } %>
-  </div>
-  <div class="map" >
-    <div style="height: 600px; border-radius: 8px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
+    <div class="book-your-gear" >
+      <%= render partial: "bookings/form", locals: { gear: @gear, booking: @booking } %>
+    </div>
+    <div class="map" >
+      <div style="height: 600px; border-radius: 8px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
 </div>
