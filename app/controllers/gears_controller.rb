@@ -20,6 +20,7 @@ class GearsController < ApplicationController
 
   def new
     @gear = Gear.new
+    @booking = Booking.new
   end
 
   def create
@@ -42,7 +43,7 @@ class GearsController < ApplicationController
   end
 
   def gear_params
-    params.require(:gear).permit(:name, :price, :availability, :category, :description, :short_description, :photo)
+    params.require(:gear).permit(:name, :price, :category, :availability, :description, :short_description, :photo)
   end
 
 end
