@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+Review.destroy_all
 Gear.destroy_all
 User.destroy_all
 
@@ -209,3 +210,21 @@ puts 'Creating camping gear...'
   gear.user = User.all.sample
   gear.save!
 puts 'Finished!'
+
+
+puts "now creating reviews...."
+users = User.all
+Gear.all.each do |gear|
+  puts "."
+  reviewers = users - [gear.user]
+  5.times do
+    Review.new(
+      rating: [2, 3, 4, 5].sample,
+      content: Faker::Restaurant.review,
+      user_id: reviewers.sample.id,
+      gear_id: gear.id
+    ).save!
+  end
+end
+
+puts "All done yay"
