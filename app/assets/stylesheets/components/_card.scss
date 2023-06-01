@@ -91,11 +91,11 @@
 }
 
 .practical-info-card {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 16px;
   padding: 8px;
   border-top: 1px solid rgba($color: #444F5A, $alpha: 0.4);
-
   p {
     padding-top: 8px;
   }
@@ -103,7 +103,10 @@
 
 .user-card {
   text-align: center;
-
+  display: block;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: baseline;
   p {
     padding-top: 4px;
   }
@@ -113,5 +116,59 @@
     height: 80px;
     padding-top: 4px;
     border-radius: 50%;
+  }
+}
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 8px;
+  // background-color: red;
+}
+
+.reviews {
+  display: block;
+  height: 250px;
+  padding: 16px;
+  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  overflow: scroll;
+}
+
+.reviews::-webkit-scrollbar {
+  display: none;
+}
+
+.review {
+  background-color: rgba(235, 190, 148, 0.05);
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.review-top {
+  display: flex;
+  justify-content: left;
+  // padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.btn-review {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  margin-right: 40px;
+  // margin-bottom: 16px;
+  a {
+    object-position: right;
+    text-decoration: none;
+    color: black;
+    padding: 8px 12px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  }
+  a:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
   }
 }

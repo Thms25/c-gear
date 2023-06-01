@@ -16,6 +16,7 @@ class GearsController < ApplicationController
     @user = @gear.user
     @markers = [{lat: @user.latitude, lng: @user.longitude}]
     @booking = Booking.new
+    @reviews = @gear.reviews
   end
 
   def new
