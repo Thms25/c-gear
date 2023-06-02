@@ -1,8 +1,9 @@
 .book-your-gear {
   padding: 16px;
-  border: 1px solid black;
+  border: 1px solid #444F5A;
   margin-right: 20px;
-  border-radius: 8px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
 }
 
 #container-book-map {
@@ -10,5 +11,20 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 16px;
-  margin: 40px auto;
+  margin: 32px auto;
+  color: #444F5A;
+}
+
+.mapboxgl-canvas {
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.padding {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.dates-selection {
+  font-size: larger;
 }
