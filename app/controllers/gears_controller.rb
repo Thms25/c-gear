@@ -50,6 +50,13 @@ class GearsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @gear = Gear.find(params[:id])
+    @gear.destroy
+    flash[:success] = "Gear successfully removed from your kit"
+    redirect_to users_path
+  end
+
 
   private
 

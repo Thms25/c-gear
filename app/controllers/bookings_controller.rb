@@ -21,6 +21,11 @@ class BookingsController < ApplicationController
     @gear = @booking.gear
   end
 
+  def show
+    @gear = Gear.find(params[:gear_id])
+    @gear = @booking.gear
+  end
+
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(start_date: booking_params[:start_date].split(" to ")[0], end_date: booking_params[:start_date].split(" to ")[1] )
