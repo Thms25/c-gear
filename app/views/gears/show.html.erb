@@ -4,7 +4,7 @@
       <div class="description-card">
           <h3> <%= @gear.name %></h3>
           <h5> <%= @gear.short_description %> </h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dolore debitis saepe maxime non, beatae magnam aperiam assumenda facere perspiciatis deleniti vel voluptatem commodi voluptate earum architecto deserunt, voluptatum at.</p>
+          <p><%= @gear.description %></p>
           <div class="practical-info-card">
                 <% unless @reviews.empty? %>
                   <div class="reviews">
