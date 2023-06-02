@@ -34,7 +34,11 @@
                 <% if current_user != @gear.user %>
                   <div class="btn-review">
                     <% if user_signed_in? %>
-                      <%= link_to "Leave a review", new_gear_review_path(@gear) %>
+                      <% if @gear.bookings.any? { |booking| booking.user_id == current_user.id } %>
+                        <%= link_to "Leave a review", new_gear_review_path(@gear) %>
+                      <% else %>
+                        <p>Please book to leave a review</p>
+                      <% end %>
                     <% else %>
                       <%= link_to "Login to leave a review", new_user_session_path %>
                     <% end %>
