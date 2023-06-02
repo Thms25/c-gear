@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.gear = @gear
     @booking.user = current_user
     if @booking.save
-      redirect_to gear_path(@gear)
+      redirect_to users_path
     else
       render :new, status: :unprocessable_entity
     end
