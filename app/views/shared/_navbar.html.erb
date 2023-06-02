@@ -2,9 +2,9 @@
     <div class="navbar">
         <h1 class="nav-title"><%= link_to (image_tag "logo.png"), gears_path %></h1>
         <div class="search-bar">
-            <a class="nav-search-element" href="">What gear?</a>
-            <a class="nav-search-element" href="">When?</a>
-            <input class="nav-search-element" type="text" placeholder="Search...">
+            <%= form_with url: gears_path, method: :get, class: "nav-search-element" do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search you gear"%>
+            <% end %>
         </div>
       <div class="user-options">
         <%= link_to "Upload new gear", new_gear_path %>

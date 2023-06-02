@@ -6,7 +6,8 @@ class Gear < ApplicationRecord
 
   validates :price, :photo, presence: true
 
-  pg_search_scope :global_search,
-                  against: [ :name, :category, :description ],
+  include PgSearch::Model
+  pg_search_scope :search_by_name_categ_desc,
+                  against: [ :name, :category, :description, :short_description ],
                   using: { tsearch: { prefix: true } }
 end
