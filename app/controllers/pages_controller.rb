@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @gears = @user.gears
+    @bookings = @user.bookings
   end
 end

@@ -19,3 +19,24 @@
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
 }
+
+.btn-review {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #3D3D3D;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 6px 14px;
+  width: fit-content;
+  a {
+    text-decoration: none;
+    color: #3D3D3D;
+  }
+}
+.btn-review:hover {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}

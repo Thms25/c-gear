@@ -1,11 +1,6 @@
   <%= simple_form_for [gear, booking], data: { controller: 'flatpickr' } do |f| %>
     <div>
-      <p><strong>Summary of your booking:</strong><em> (<span data-flatpickr-target="price"><%= gear.price %></span>€/day)</em></p>
-      <div data-flatpickr-target="list">
-        <p>No dates in your selection</p>
-      </div>
-      <div class="value" data-flatpickr-target="bookings" data-flatpickr-bookings-value="<%= gear.bookings.to_json %>"></div>
-      <div class="value" data-flatpickr-target="unavailabilities" data-flatpickr-unavailabilities-value="<%= gear.unavailabilities.to_json  %>"></div>
+      <p class="padding"><strong>Summary of your booking:</strong> <span data-flatpickr-target="price"><%= gear.price %></span> €/day</p>
 
       <%= f.input :start_date, as: :string,wrapper_html: { class: 'hide', style: 'margin: 0; padding: 0;' }, label: "Select your dates",
                                             placeholder: "Select a date...",
@@ -25,8 +20,13 @@
                                             class: 'd-none'
                                             } %>
     </div>
+                                            <div data-flatpickr-target="list">
+                                              <p class="dates-selection">No dates in your selection</p>
+                                            </div>
+                                            <div class="value" data-flatpickr-target="bookings" data-flatpickr-bookings-value="<%= gear.bookings.to_json %>"></div>
+                                            <div class="value" data-flatpickr-target="unavailabilities" data-flatpickr-unavailabilities-value="<%= gear.unavailabilities.to_json  %>"></div>
     <% if user_signed_in? %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "button" %>
     <% else %>
       <%= link_to "Sign in to book", new_user_session_path, class:"button" %>
     <% end %>

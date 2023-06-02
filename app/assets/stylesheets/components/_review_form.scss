@@ -5,3 +5,31 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 217, 179, 0.528);
 }
+
+.reviews {
+  display: block;
+  height: 250px;
+  padding: 16px;
+  // box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  overflow: scroll;
+}
+
+.reviews::-webkit-scrollbar {
+  display: none;
+}
+
+.review {
+  background-color: rgba(235, 190, 148, 0.05);
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 24px;
+  // padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}

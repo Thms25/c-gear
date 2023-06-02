@@ -2,8 +2,8 @@
     <div class="navbar">
         <h1 class="nav-title"><%= link_to (image_tag "logo.png"), gears_path %></h1>
         <div class="search-bar">
-            <%= form_with url: gears_path, method: :get, class: "nav-search-element" do %>
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search you gear"%>
+            <%= form_with url: gears_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "nav-search-element", placeholder: "Search for a gear..."%>
             <% end %>
         </div>
       <div class="user-options">
