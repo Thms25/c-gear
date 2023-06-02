@@ -14,10 +14,8 @@ export default class extends Controller {
       from: booking.start_date,
       to: booking.end_date
     }));
-    console.log(bookingsDisabled)
     const unavailabilities = JSON.parse(this.unavailabilitiesTarget.dataset.flatpickrUnavailabilitiesValue)
     unavailabilities.forEach((element)=> {bookingsDisabled.push(element)} )
-    console.log(bookingsDisabled)
 
     flatpickr(this.startTimeTarget, {altInput: true,
                                     minDate: "today",
@@ -41,7 +39,7 @@ export default class extends Controller {
                                             `<p>${price}€ x ${numberDays} days = ${price * numberDays}€ </p>`
         )} else {
         this.listTarget.insertAdjacentHTML("beforeend",
-                                            `<p>Please select a valid date !</p>`
+                                            `<p>Please select two days at least !</p>`
         )}
     }
   }
