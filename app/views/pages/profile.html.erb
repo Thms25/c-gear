@@ -6,14 +6,14 @@
       </div>
       <div class="two profile-card">
           <h2>About me</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quis adipisci corrupti nostrum dolorem fugiat ullam, veritatis tenetur? Voluptate facere, quas minus tempore sequi illum delectus? Error sequi nemo qui!</p>
+          <p>I live in Brussels at the moment, but I hope to travel as much as possible. I love meeting new people and discovering everything about a country/city. I adore contemporary art, the wilderness, going out, good music, and a sunny afternoon with my friends.</p>
       </div>
       <div class="three personal-info profile-card">
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         <p><%= @user.address %></p>
         <p><%= @user.email %></p>
         <%= link_to edit_user_registration_path do %>
-            <button class="btn">Edit profile</button>
+            <p class="button">Edit profile</p>
         <% end %>
       </div>
       <div class="four kit profile-card">
@@ -23,7 +23,6 @@
                   <% @gears.each do |gear|  %>
                       <div class="preview-gear">
                         <%= link_to gear_path(gear) do %>
-
                           <div class="card-picture">
                               <div class="card-profile-image"
                                 style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
@@ -31,13 +30,17 @@
                           </div>
                         <% end %>
                           <div class="card-description">
-                        <%= link_to gear_path(gear) do %>
-
-                            <p class="card-description-bold"><%= gear.name %></p>
-                            <% end %>
-                            <%= link_to edit_gear_path(gear) do %>
-                              <button class="button">Edit gear</button>
-                            <% end %>
+                              <%= link_to gear_path(gear) do %>
+                                  <p class="card-description-bold kit-padding"><%= gear.name %></p>
+                              <% end %>
+                              </div>
+                              <div class="two-buttons">
+                              <%= link_to edit_gear_path(gear) do %>
+                                <button class="button">Edit gear</button>
+                              <% end %>
+                              <%= link_to gear_path(gear), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                                <button class="button">Remove gear</button>
+                              <% end %>
                           </div>
                       </div>
                 <% end %>
@@ -60,8 +63,9 @@
                               </div>
                           </div>
                           <div class="card-description">
-                            <p class="card-description-bold">
-                            <%= booking.start_date %> - <%= booking.end_date %></p>
+                            <p class="card-description-bold kit-padding">
+                            <%# <%= @gear.name %>
+                            <p><%= booking.start_date %> - <%= booking.end_date %></p>
                             <%= link_to edit_booking_path(booking) do %>
                               <button class="button">Edit booking</button>
                             <% end %>

@@ -64,8 +64,7 @@ puts 'Creating camping gear...'
   gear = Gear.new(
     name: "Two person tent",
     short_description: "Ideal for long camping trips",
-    description: "Lorem ipsum dolor sit amet. Et distinctio internos quo aperiam odio est minus voluptatem cum doloremque cumque. Eum iusto commodi eum dicta voluptas vel maiores sint.
-    Eos dolor voluptate sit rerum praesentium sit amet rerum sed officia veniam At consequatur maiores id aliquam ducimus et libero dolorem. A similique tempora hic veritatis labore qui illo deserunt nam velit quaerat. Id aliquam dolor hic atque doloribus est saepe voluptates qui mollitia veniam et quasi dolore.",
+    description: "A two-person tent is a compact and versatile shelter designed for two individuals during outdoor adventures. It typically features a lightweight and durable construction, making it easy to carry and set up. With its cozy interior space, it provides comfortable sleeping quarters for two campers, along with storage pockets for essential gear. The tent usually includes mesh panels for ventilation and protection against insects, and a rainfly to shield against rain and moisture. Perfect for backpacking, hiking, or camping trips, this tent offers a practical and convenient solution for outdoor enthusiasts.",
     price: 59,
     category: "#{['Biking trip', 'Hiking trip', 'Mountain trip', 'Beach trip']}"
   )
