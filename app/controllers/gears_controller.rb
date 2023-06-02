@@ -4,7 +4,10 @@ class GearsController < ApplicationController
   def index
     @gears = Gear.all
     @users = User.all
-    @markers = @users.geocoded.map do |user|
+    @users_with_gear = @users.geocoded.select do |user|
+      user unless user.gears.empty?
+    end
+    @markers = @users_with_gear.map do |user|
       gear = user.gears.first unless user.gears.empty?
       marker = {
         lat: user.latitude,
@@ -19,7 +22,11 @@ class GearsController < ApplicationController
 
   def show
     @user = @gear.user
-    @markers = [{lat: @user.latitude, lng: @user.longitude}]
+    @markers = [{
+      lat: @user.latitude,
+      lng: @user.longitude,
+      preview_html: render_to_string(partial: "preview", locals: {gear: gear})
+      }]
     @booking = Booking.new
     @reviews = @gear.reviews
   end

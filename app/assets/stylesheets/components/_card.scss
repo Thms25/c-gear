@@ -24,16 +24,20 @@
   gap: 24px;
 }
 
-.card-container:hover {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+
+@media (max-width: 920px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gears-body {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 720px) {
-  grid-template-columns: 1fr 1fr;
-}
-
-@media (max-width: 520px) {
-  grid-template-columns: 1fr;
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-product {
