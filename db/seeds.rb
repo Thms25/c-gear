@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
+Booking.destroy_all
 Review.destroy_all
 Gear.destroy_all
 User.destroy_all
@@ -16,16 +16,15 @@ require "open-uri"
 puts 'Creating 10 fake users...'
 
 addresses = [
-  "15 Rue du Marché, Brussels",
-  "48 Avenue des Roses, Antwerp",
-  "9 Rue de la Fontaine, Ghent",
-  "27 Rue de l'Église, Bruges",
-  "63 Rue du Château, Liège",
-  "10 Rue des Peupliers, Charleroi",
-  "35 Avenue de la Plage, Ostend",
-  "21 Rue de la Gare, Namur",
-  "72 Chaussée de Louvain, Leuven",
-  "54 Rue du Parc, Mons"
+  "Rue de la Loi 155, Brussels, Belgium",
+  "Avenue Louise 500, Brussels, Belgium",
+  "Rue des Bouchers 20, Brussels, Belgium",
+  "Place du Grand Sablon 8, Brussels, Belgium",
+  "Rue Neuve 123, Brussels, Belgium",
+  "Rue des Fripiers 34, Brussels, Belgium",
+  "Boulevard Anspach 20, Brussels, Belgium",
+  "Rue Royale 4, Brussels, Belgium",
+  "Avenue de Tervueren 13, Brussels, Belgium"
 ]
 
 addresses.each do |address|
@@ -39,7 +38,7 @@ addresses.each do |address|
   )
   user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
   user.save!
-  puts "almost there...."
+  puts "....almost there...."
 end
 
 puts 'Done!'

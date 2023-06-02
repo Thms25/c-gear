@@ -1,8 +1,43 @@
+.gears-body {
+  // background-color: red;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.map-container {
+  position: sticky;
+  top: 32px;
+  margin: 32px 16px;
+  height: 80vh;
+}
+
+.map {
+  width: 100%;
+  height: 80vh;
+  border-radius: 16px;
+}
+
 .card-container {
   display: grid;
   margin-top: 32px;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px;
+  gap: 24px;
+}
+
+
+@media (max-width: 920px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gears-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-product {
@@ -18,8 +53,8 @@
 }
 
 .card-background-image {
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   border-radius: 16px;
