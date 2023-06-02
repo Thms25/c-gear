@@ -1,5 +1,14 @@
+.preview {
+  text-decoration: none;
+  color: black;
+  border-radius: 16px;
+  &:focus {
+    outline: 0;
+  }
+}
+
 .mapboxgl-popup {
-  max-width: 250px;
+  max-width: 2o0px;
 }
 
 .mapboxgl-popup-content {
@@ -10,7 +19,7 @@
 .pop-photo img {
   width: 100px;
   height: 80px;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .pop-info {

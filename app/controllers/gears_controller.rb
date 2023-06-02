@@ -25,7 +25,7 @@ class GearsController < ApplicationController
     @markers = [{
       lat: @user.latitude,
       lng: @user.longitude,
-      preview_html: render_to_string(partial: "preview", locals: {gear: gear})
+      preview_html: render_to_string(partial: "preview", locals: {gear: @gear})
       }]
     @booking = Booking.new
     @reviews = @gear.reviews
