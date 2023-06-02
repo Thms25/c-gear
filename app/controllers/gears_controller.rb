@@ -21,24 +21,20 @@ class GearsController < ApplicationController
     if params[:query].present?
       @gears = Gear.search_by_name_categ_desc(params[:query])
       @markers = @users.geocoded.select do |user|
-
         gear = user.gears.first unless user.gears.empty?
         if @gears.include?(gear)
           marker = {
             lat: user.latitude,
             lng: user.longitude
           }
-          raise
           if gear.present?
             marker[:preview_html] = render_to_string(partial: "preview", locals: { gear: gear })
           end
           marker
         end
       end
-      raise
     end
     @markers
-raise
   end
 
   def show
