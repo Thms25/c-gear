@@ -4,7 +4,8 @@ class Gear < ApplicationRecord
   has_many :reviews
   has_one_attached :photo
 
-  validates :price, :photo, presence: true
+  validates :price, :photo, :short_description, :name, :description, presence: true
+  validates :price, numericality: { only_integer: true }
 
   include PgSearch::Model
   pg_search_scope :search_by_name_categ_desc,
