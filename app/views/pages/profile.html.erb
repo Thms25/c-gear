@@ -64,10 +64,10 @@
                           </div>
                           <div class="card-description">
                             <p class="card-description-bold kit-padding">
-                            <%= booking.gear.name %>
-                            <%= link_to edit_booking_path(booking) do %>
-                              <button class="button">Edit booking</button>
-                            <% end %>
+                            <%= booking.gear.name %> - <%= booking.start_date.strftime('%m/%d/%Y') %> - <%= booking.end_date.strftime('%m/%d/%Y') %>
+                            <%# <%= link_to edit_booking_path(booking) do %>
+                              <%# <button class="button">Edit booking</button> %>
+                            <%# <% end %>
                           </div>
                       </div>
                 <% end %>
