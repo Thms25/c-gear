@@ -8,15 +8,15 @@
                       <div class="card-background-image"
                         style="background-image: url('<%= cl_image_path gear.photo.key, height: 300, crop: :fill %>')" >
                       </div>
-                      <div class="card-dot">
+                      <%# <div class="card-dot">
                         <p><i class="fa-solid fa-circle"></i></p>
                         <p><i class="fa-solid fa-circle"></i></p>
                         <p><i class="fa-solid fa-circle"></i></p>
                         <p><i class="fa-solid fa-circle"></i></p>
-                      </div>
-                      <div class="card-favorite">
+                      </div> %>
+                      <%# <div class="card-favorite">
                         <p><i class="fa-solid fa-heart" style="--fa-border-color: white; --fa-border-width: 0.5em"></i></p>
-                      </div>
+                      </div> %>
                   </div>
                   <div class="card-description">
                     <p class="card-description-bold"><%= gear.name %></p>
@@ -29,8 +29,8 @@
     </div>
   </div>
 
-  <div class="map">
-    <div style="width: 60%; height: 600px; margin: 40px auto; border-radius: 8px;"
+  <div class="map-container">
+    <div class="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
