@@ -35,6 +35,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    flash[:success] = "Booking successfully removed, maybe another time !"
+    redirect_to users_path
+  end
+
   private
 
   def booking_params
