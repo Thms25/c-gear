@@ -22,17 +22,33 @@ addresses = [
   "Place du Grand Sablon 8, Brussels, Belgium",
   "Rue Neuve 123, Brussels, Belgium",
   "Rue des Fripiers 34, Brussels, Belgium",
+  "Rue Jenner 3, Brussels, Belgium",
+  "Rue Jenner 1, Brussels, Belgium",
   "Boulevard Anspach 20, Brussels, Belgium",
   "Rue Royale 4, Brussels, Belgium",
-  "Avenue de Tervueren 13, Brussels, Belgium"
+  "Avenue de Tervueren 13, Brussels, Belgium",
 ]
 
-addresses.each do |address|
+names = [
+  "Quentin",
+  "Gab",
+  "Gaby",
+  "Alejandro",
+  "Ali",
+  "Pedro",
+  "Asli",
+  "Thomas",
+  "Charlotte",
+  "Matt",
+  "Cassy"
+]
+
+addresses.each_with_index do |address, index|
   file = URI.open("https://source.unsplash.com/random/?portrait")
   user = User.new(
-    email: Faker::Internet.email,
+    email: "#{names[index].downcase}@test.com",
     password: "qwerty",
-    first_name: Faker::Name.first_name,
+    first_name: "#{names[index]}",
     last_name: Faker::Name.last_name,
     address: address
   )

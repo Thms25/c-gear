@@ -11,12 +11,29 @@ class GearsController < ApplicationController
       gear = user.gears.first unless user.gears.empty?
       marker = {
         lat: user.latitude,
-        lng: user.longitude,
+        lng: user.longitude
       }
       if gear.present?
-        marker[:preview_html] = render_to_string(partial: "preview", locals: {gear: gear})
+        marker[:preview_html] = render_to_string(partial: "preview", locals: { gear: gear })
       end
       marker
+    end
+    if params[:query].present?
+      @gears = Gear.search_by_name_categ_desc(params[:query])
+      @markers = @users_with_gear.map do |user|
+        gear = user.gears.first unless user.gears.empty?
+        if @gears.include?(gear)
+          marker = {
+            lat: user.latitude,
+            lng: user.longitude
+          }
+          if gear.present?
+            marker[:preview_html] = render_to_string(partial: "preview", locals: { gear: gear })
+          end
+          marker
+        end
+      end
+      @markers = @markers.compact
     end
   end
 
@@ -55,6 +72,17 @@ class GearsController < ApplicationController
     @gear.destroy
     flash[:success] = "Gear successfully removed from your kit"
     redirect_to users_path
+  end
+  
+  def update
+    unavailabilities = @gear[:unavailabilities]
+    params[:gear][:unavailabilities].split(", ").each { |new| unavailabilities << new}
+    if @gear.update(gear_params)
+      @gear.update(unavailabilities: unavailabilities)
+      redirect_to users_path, notice: "Gear was successfully Updated."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
 
