@@ -64,8 +64,7 @@
                           </div>
                           <div class="card-description">
                             <p class="card-description-bold kit-padding">
-                            <%# <%= @gear.name %>
-                            <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                            <%= booking.gear.name %>
                             <%= link_to edit_booking_path(booking) do %>
                               <button class="button">Edit booking</button>
                             <% end %>
