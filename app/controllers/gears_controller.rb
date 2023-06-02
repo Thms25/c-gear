@@ -20,7 +20,7 @@ class GearsController < ApplicationController
     end
     if params[:query].present?
       @gears = Gear.search_by_name_categ_desc(params[:query])
-      @markers = @users.geocoded.select do |user|
+      @markers = @users_with_gear.map do |user|
         gear = user.gears.first unless user.gears.empty?
         if @gears.include?(gear)
           marker = {
@@ -33,8 +33,8 @@ class GearsController < ApplicationController
           marker
         end
       end
+      @markers = @markers.compact
     end
-    @markers
   end
 
   def show
@@ -65,6 +65,17 @@ class GearsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    unavailabilities = @gear[:unavailabilities]
+    params[:gear][:unavailabilities].split(", ").each { |new| unavailabilities << new}
+    if @gear.update(gear_params)
+      @gear.update(unavailabilities: unavailabilities)
+      redirect_to users_path, notice: "Gear was successfully Updated."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
 
