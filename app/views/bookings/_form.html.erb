@@ -25,9 +25,11 @@
                                             </div>
                                             <div class="value" data-flatpickr-target="bookings" data-flatpickr-bookings-value="<%= gear.bookings.to_json %>"></div>
                                             <div class="value" data-flatpickr-target="unavailabilities" data-flatpickr-unavailabilities-value="<%= gear.unavailabilities.to_json  %>"></div>
-    <% if user_signed_in? %>
-      <%= f.submit class: "button" %>
-    <% else %>
-      <%= link_to "Sign in to book", new_user_session_path, class:"button" %>
+    <% if current_user != @gear.user %>
+      <% if user_signed_in? %>
+        <%= f.submit class: "button" %>
+      <% else %>
+        <%= link_to "Sign in to book", new_user_session_path, class:"button" %>
+      <% end %>
     <% end %>
   <% end %>

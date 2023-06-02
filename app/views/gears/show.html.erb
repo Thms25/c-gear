@@ -25,13 +25,15 @@
                   <p><%= @user.first_name %></p>
                 </div>
               </div>
-                <div class="btn-review">
-                  <% if user_signed_in? %>
-                    <%= link_to "Leave a review", new_gear_review_path(@gear) %>
-                  <% else %>
-                    <%= link_to "Login to leave a review", new_user_session_path %>
-                  <% end %>
-                </div>
+                <% if current_user != @gear.user %>
+                  <div class="btn-review">
+                    <% if user_signed_in? %>
+                      <%= link_to "Leave a review", new_gear_review_path(@gear) %>
+                    <% else %>
+                      <%= link_to "Login to leave a review", new_user_session_path %>
+                    <% end %>
+                  </div>
+                <% end %>
           </div>
       </div>
   </div>
