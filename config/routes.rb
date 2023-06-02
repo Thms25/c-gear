@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/users', to: 'pages#profile'
 
   resources :gears do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :edit, :show]
     resources :reviews, only: [:new, :create]
   end
 

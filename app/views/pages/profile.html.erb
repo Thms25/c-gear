@@ -48,5 +48,28 @@
               <% end %>
             </div>
       </div>
+      <div class="five bookings profile-card">
+        <h2>My bookings</h2>
+          <div class="bookings-gear">
+              <% unless @bookings.empty? %>
+                  <% @bookings.each do |booking|  %>
+                      <div class="preview-gear">
+                          <div class="card-picture">
+                              <div class="card-profile-image"
+                                style="background-image: url('<%= cl_image_path booking.gear.photo.key, height: 300, crop: :fill %>')" >
+                              </div>
+                          </div>
+                          <div class="card-description">
+                            <p class="card-description-bold">
+                            <%= booking.start_date %> - <%= booking.end_date %></p>
+                            <%= link_to edit_booking_path(booking) do %>
+                              <button class="button">Edit booking</button>
+                            <% end %>
+                          </div>
+                      </div>
+                <% end %>
+              <% end %>
+            </div>
+      </div>
   </section>
 </section>
