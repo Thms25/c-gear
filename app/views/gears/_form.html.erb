@@ -1,3 +1,4 @@
+<div class="container mt-4 mb-4">
 <%= simple_form_for(@gear, data: { controller: 'flatpickr-booking' }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -24,7 +25,8 @@
     <%= f.input :photo, as: :file %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button  :submit, class:"mb-3"%>
+  <div class="form-actions btn-review">
+    <%= f.button  :submit%>
   </div>
 <% end %>
+</div>
