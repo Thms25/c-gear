@@ -5,4 +5,8 @@ class Gear < ApplicationRecord
   has_one_attached :photo
 
   validates :price, :photo, presence: true
+
+  pg_search_scope :global_search,
+                  against: [ :name, :category, :description ],
+                  using: { tsearch: { prefix: true } }
 end
